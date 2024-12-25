@@ -8,6 +8,10 @@ def main():
     parser.add_argument("credentials_file", help="Path to the credentials file")
     args = parser.parse_args()
 
+    # Logout of any existing account first
+    print("[INFO] Logging out of any existing account")
+    subprocess.run(["mega-logout"], check=False)
+
     with open(args.credentials_file, "r") as f:
         for line in f:
             parts = line.strip().split(",")
