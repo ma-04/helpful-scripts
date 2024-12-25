@@ -11,6 +11,7 @@ def main():
     # Logout of any existing account first
     print("[INFO] Logging out of any existing account")
     subprocess.run(["mega-logout"], check=False)
+    subprocess.run(["mega-killsession", "-a"], check=False)
 
     with open(args.credentials_file, "r") as f:
         for line in f:
